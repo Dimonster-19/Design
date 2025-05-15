@@ -1,0 +1,183 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Узкий навигационный блок -->
+<section class="nav-section">
+    <div class="nav-container">
+        <div class="nav-buttons">
+            <a href="#about" class="nav-btn smooth-scroll">О нас</a>
+            <a href="#services" class="nav-btn smooth-scroll">Услуги и цены</a>
+            <a href="#projects" class="nav-btn smooth-scroll">Проекты</a>
+            <a href="#contact" class="nav-btn smooth-scroll">Контакты</a>
+        </div>
+    </div>
+</section>
+
+<!-- Блок "Золотая рыбка" -->
+<section class="goldfish-section">
+    <div class="goldfish-container">
+        <div class="goldfish-column image-column">
+            <img src="{% static 'img/goldfish 1.png' %}" alt="Дизайн интерьера" class="goldfish-image">
+        </div>
+
+        <div class="goldfish-column title-column">
+            <h2 class="goldfish-title">Золотая рыбка</h2>
+        </div>
+
+        <div class="goldfish-column text-column">
+            <div class="agency-info"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Блок "Проекты" -->
+<section class="projects-section" id="projects">
+    <div class="projects-container">
+        <div class="projects-carousel">
+            <h3 class="section-title">Наши проекты</h3>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-slide">
+                    <img src="{% static 'img/black-cavier.png' %}" alt="Проект 1" class="active">
+                    <img src="{% static 'img/mother-of-pearl-swirling-shell.png' %}" alt="Проект 2">
+                    <img src="{% static 'img/the-crest-of-the-wave.png' %}" alt="Проект 3">
+                </div>
+
+                <div class="carousel-indicators">
+                    <span class="indicator active" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-description">
+            <p class="projects-text">Мы создаем уникальные проекты, руководствуясь только фантазией наших клиентов и профессиональными стандартами нашего агентства</p>
+        </div>
+    </div>
+</section>
+
+<!-- Блок "Услуги" -->
+<section class="services-section" id="services">
+    <div class="services-container">
+        <h3 class="services-title">Услуги</h3>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h4 class="service-name">Услуга 1</h4>
+                <ul class="service-list">
+                    <li>• Услуга 1.1</li>
+                    <li>• Услуга 1.2</li>
+                    <li>• Услуга 1.3</li>
+                    <li>• Услуга 1.4</li>
+                </ul>
+            </div>
+
+            <!-- Остальные услуги 2-4 -->
+        </div>
+    </div>
+</section>
+
+<!-- Блок "Команда" -->
+<section class="team-section" id="about">
+    <div class="team-container">
+        <div class="team-text">
+            <h3 class="team-title">О тех, кто создает шедевры</h3>
+            <p class="team-description">Наша уникальность - в каждом из нас, именно поэтому мы создаем прекрасное</p>
+        </div>
+
+        <div class="team-photo">
+            <img src="{% static 'img/Daria Zotenkova.jpg' %}" alt="Дизайнер GOLD" class="member-photo">
+            <div class="photo-caption">
+                <p class="caption-text">"Творчество - это искусство видеть невидимое"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Блок "Оставить заявку" -->
+<section class="application-section" id="contact">
+    <div class="application-container">
+        <div class="application-header">
+            <h3 class="application-title">Оставить заявку</h3>
+        </div>
+
+        <div class="application-form">
+            <h4 class="form-title">Заказать бесплатную консультацию</h4>
+            <p class="form-subtitle">Заполните форму и мы свяжемся с вами совсем скоро</p>
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Имя" required>
+                    <input type="text" placeholder="Фамилия" required>
+                </div>
+
+                <div class="contact-method">
+                    <select>
+                        <option value="phone">Телефон</option>
+                        <option value="email">Email</option>
+                    </select>
+                    <input type="text" id="contact-input" placeholder="+7 (___) ___-__-__">
+                </div>
+
+                <button type="submit" class="submit-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Кнопка "Вверх" -->
+<button id="back-to-top" class="back-to-top-btn" title="Наверх">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill="currentColor" d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"/>
+    </svg>
+</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Плавный скролл для всех ссылок с классом smooth-scroll
+    document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // Обновляем URL без перезагрузки страницы
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
+
+    // Кнопка "Наверх"
+    const backToTopButton = document.getElementById('back-to-top');
+
+    // Показываем/скрываем кнопку при скролле
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    // Плавный скролл наверх при клике
+    backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+{% endblock %}

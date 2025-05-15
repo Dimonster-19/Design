@@ -1,0 +1,669 @@
+/* Основная структура */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Основные стили */
+.nav-section {
+    background-color: #C08847 !important;
+    height: 76px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.goldfish-section {
+    background-color: #F8F1E5 !important;
+}
+
+.projects-section {
+    background-color: #BDCFD3 !important;
+}
+
+.services-section {
+    background-color: #F8F1E5 !important;
+}
+
+.team-section {
+    background-color: #F8F1E5 !important;
+}
+
+.application-section {
+    background-color: #F8F1E5 !important;
+}
+
+.footer-section {
+    background-color: #C08847 !important;
+    height: 76px;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Стили футера */
+.footer-section {
+    background-color: #C08847;
+    height: 76px;
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.social-icon {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.social-icon:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.3s;
+}
+
+.social-icon:hover:after {
+    width: 100%;
+}
+
+/* Навигационный блок 2cm высотой */
+.nav-section {
+    height: 2cm; /* Фиксированная высота 2 см */
+    display: flex;
+    align-items: center; /* Центрируем кнопки по вертикали */
+    position: relative;
+    padding: 0 40px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem; /* Чуть уменьшил размер шрифта */
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 3px;
+    white-space: nowrap; /* Запрет переноса текста */
+}
+
+.nav-btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-btn:hover:after {
+    width: 100%;
+}
+
+/* Стили для блока "Золотая рыбка" */
+.goldfish-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.goldfish-column {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+}
+
+.image-column {
+    justify-content: flex-start;
+}
+
+.title-column {
+    flex-direction: column;
+    border-left: 1px solid rgba(166, 83, 51, 0.2);
+    border-right: 1px solid rgba(166, 83, 51, 0.2);
+}
+
+.text-column {
+    justify-content: flex-end;
+}
+
+.goldfish-image {
+    max-height: 70vh;
+    width: auto;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.agency-info {
+    width: 100%;
+    max-width: 300px;
+    min-height: 200px;
+    border: 1px dashed rgba(166, 83, 51, 0.3);
+    border-radius: 4px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .goldfish-container {
+        flex-direction: column;
+    }
+
+    .goldfish-column {
+        padding: 20px;
+    }
+
+    .title-column {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(166, 83, 51, 0.2);
+        border-bottom: 1px solid rgba(166, 83, 51, 0.2);
+    }
+
+    .goldfish-image {
+        max-height: 40vh;
+    }
+
+    .agency-info {
+        max-width: 100%;
+    }
+}
+/* Блок "Проекты" */
+.projects-section {
+    min-height: 100vh;
+    padding: 60px 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.projects-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.projects-carousel {
+    flex: 1;
+    padding-right: 60px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    color: #2A4A53;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+}
+
+.carousel-slide {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.carousel-slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.carousel-slide img.active {
+    opacity: 1;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(42, 74, 83, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #2A4A53;
+    transform: scale(1.2);
+}
+
+.projects-description {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+    border-left: 1px solid rgba(42, 74, 83, 0.2);
+}
+
+.projects-text {
+    font-family: 'Calisto MT', 'Times New Roman', serif;
+    color: #2A4A53;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 400px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .projects-container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .projects-carousel {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .projects-description {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(42, 74, 83, 0.2);
+        padding-top: 40px;
+    }
+
+    .projects-text {
+        max-width: 100%;
+    }
+}
+/* Блок "Услуги" */
+.services-section {
+    padding: 80px 40px;
+    border-top: 1px solid rgba(166, 83, 51, 0.2);
+}
+
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.services-title {
+    font-family: 'Playfair Display', serif;
+    color: #A65333;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-name {
+    font-family: 'Calisto MT', serif;
+    color: #2A4A53;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.service-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-list li {
+    color: #5F5F5F;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.service-list li:before {
+    content: "•";
+    color: #C08847;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .services-section {
+        padding: 60px 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Блок "Команда" */
+.team-section {
+    padding: 80px 40px;
+    border-top: 1px solid rgba(166, 83, 51, 0.2);
+}
+
+.team-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 60px;
+}
+
+.team-text {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.team-title {
+    font-family: 'Playfair Display', serif;
+    color: #A65333;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.team-description {
+    font-family: 'Calisto MT', serif;
+    color: #2A4A53;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+.team-photo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member-photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.photo-caption {
+    text-align: center;
+    font-family: 'Calisto MT', serif;
+    color: #2A4A53;
+    font-style: italic;
+    font-size: 1.1rem;
+    max-width: 350px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .team-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .team-text {
+        padding-right: 0;
+    }
+
+    .member-photo {
+        max-width: 100%;
+    }
+}
+/* Блок "Оставить заявку" */
+.application-section {
+    padding: 80px 40px;
+    border-top: 1px solid rgba(166, 83, 51, 0.2);
+}
+
+.application-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 60px;
+}
+
+.application-header {
+    flex: 1;
+}
+
+.application-title {
+    font-family: 'Playfair Display', serif;
+    color: #A65333;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.application-form {
+    flex: 2;
+    max-width: 600px;
+}
+
+.form-title {
+    font-family: 'Playfair Display', serif;
+    color: #2A4A53;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+    font-family: 'Calisto MT', serif;
+    color: #5F5F5F;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-method {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-method select {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.contact-method input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #A65333;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 4px;
+    font-family: 'Calisto MT', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #8a4226;
+}
+
+/* Стили для кнопки "Наверх" */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #A65333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top-btn:hover {
+    background-color: #333;
+    transform: translateY(-3px);
+}
+
+.back-to-top-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Добавьте эти стили в ваш CSS-файл */
+
+/* Унифицированные стили для всех заголовков */
+.section-title,
+.goldfish-title,
+.services-title,
+.team-title,
+.application-title,
+.form-title {
+    color: #2A4A53 !important; /* Цвет как у "Наши проекты" */
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+/* Специфические размеры для разных заголовков */
+.goldfish-title {
+    font-size: 3rem;
+}
+
+.section-title,
+.services-title,
+.team-title,
+.application-title {
+    font-size: 2.5rem;
+}
+
+.form-title {
+    font-size: 1.8rem;
+}
+
+/* Дополнительные корректировки для сохранения общего стиля */
+.team-description,
+.projects-text,
+.form-subtitle,
+.photo-caption {
+    color: #2A4A53; /* Сделаем подписи в том же цветовом семействе */
+}
