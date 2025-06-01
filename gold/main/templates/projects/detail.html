@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<article class="project-detail">
+    <header class="project-header">
+        <div class="container">
+            <h1 class="project-title">{{ project.title }}</h1>
+            <div class="project-meta">
+                <span class="project-client">{{ project.client }}</span>
+                <span class="project-year">{{ project.year }}</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="project-cover">
+                <img src="{{ project.get_cover_url }}" alt="{{ project.title }}">
+            </div>
+            
+            <div class="project-description">
+                {{ project.description|linebreaks }}
+            </div>
+            
+            {% if images %}
+            <div class="project-gallery">
+                <h2>Галерея проекта</h2>
+                <div class="gallery-grid">
+                    {% for image in images %}
+                    <div class="gallery-item">
+                        <img src="{{ image.image.url }}" alt="Изображение проекта {{ project.title }}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</article>
+{% endblock %}

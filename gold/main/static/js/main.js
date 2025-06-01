@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Добавляем активные классы выбранным элементам
             this.classList.add('active');
             slides[index].classList.add('active');
+
         });
     });
 });

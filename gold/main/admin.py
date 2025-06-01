@@ -8,7 +8,12 @@ class ProjectImageInline(admin.TabularInline):
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'client', 'year', 'is_featured')
-    list_filter = ('is_featured', 'year')
+    list_filter = ('year', 'is_featured')
     search_fields = ('title', 'client')
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ProjectImageInline]
+
+@admin.register(ProjectImage)
+class ProjectImageAdmin(admin.ModelAdmin):
+    list_display = ('project', 'order')
+    list_editable = ('order',)

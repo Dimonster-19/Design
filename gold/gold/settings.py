@@ -130,17 +130,132 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if DEBUG:
-    # Отключаем кэширование статики
-    import mimetypes
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'general': {
+            'format': '{asctime} {levelname} {module} {message}',
+            'style': '{',
+        },
+        'errors': {
+            'format': '{asctime} {levelname} {pathname} {message}\n{exc_info}',
+            'style': '{',
+        },
+        'security': {
+            'format': '{asctime} {levelname} {module} {message}',
+            'style': '{',
+        },
+        'email': {
+            'format': '{asctime} {levelname} {pathname} {message}',
+            'style': '{',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+    },
+    'handlers': {
+        # Консоль (только при DEBUG=True)
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'general',
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+        },
+        # general.log (только при DEBUG=False)
+        'general_file': {
+            'class': 'logging.FileHandler',
+            'filename': 'general.log',
+            'formatter': 'general',
+            'level': 'INFO',
+            'encoding': 'utf-8',
+            'filters': ['require_debug_false'],
+        },
+        # errors.log (всегда)
+        'errors_file': {
+            'class': 'logging.FileHandler',
+            'filename': 'errors.log',
+            'formatter': 'errors',
+            'level': 'ERROR',
+            'encoding': 'utf-8',
+        },
+        # security.log (всегда)
+        'security_file': {
+            'class': 'logging.FileHandler',
+            'filename': 'security.log',
+            'formatter': 'security',
+            'level': 'INFO',
+            'encoding': 'utf-8',
+        },
+        # Почта (только при DEBUG=False)
+        'mail_admins': {
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'email',
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+        },
+    },
+    'loggers': {
+        # Основной логгер Django
+        'django': {
+            'handlers': ['console', 'general_file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        # Логгеры для errors.log
+        'django.request': {
+            'handlers': ['errors_file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['errors_file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.template': {
+            'handlers': ['errors_file'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.db.backends': {
+            'handlers': ['errors_file'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        # Логгер для security.log
+        'django.security': {
+            'handlers': ['security_file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'zotenkovad@gmail.com'
+EMAIL_HOST_PASSWORD = 'prpn lpwj huzu elhb'
+DEFAULT_FROM_EMAIL = 'zotenkovad@gmail.com'
+MANAGER_EMAIL = 'zotenkovad@gmail.com'
 
-    mimetypes.add_type("application/javascript", ".js", True)
+# Настройки для отправки почты
+ADMINS = [('Дмитрий', 'dmitrij.khalo@gmail.com')]
+SERVER_EMAIL = 'server@example.com'  # Отправитель
 
-    # Добавляем middleware для отключения кэширования
-    MIDDLEWARE += [
-        'django.middleware.http.ConditionalGetMiddleware',
-        'django.middleware.common.CommonMiddleware',
-    ]
-
-    # Эти настройки гарантируют свежую статику
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.yandex.ru'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_HOST_USER = 'zotenkovad@yandex.ru'
+#EMAIL_HOST_PASSWORD = 'rgnuzkpczgwufiwc'
+#DEFAULT_FROM_EMAIL = 'zotenkovad@yandex.ru'
+#MANAGER_EMAIL = 'zotenkovad@yandex.ru'
+# Куда отправлять заявки

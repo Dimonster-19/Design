@@ -1,0 +1,6 @@
+2025-06-01 13:31:41,648 ERROR C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py Ошибка запроса
+(<class 'ValueError'>, ValueError('Тестовая ошибка для errors.log'), <traceback object at 0x0000023C2D723140>)
+Traceback (most recent call last):
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py", line 133, in test_logging
+    raise ValueError("Тестовая ошибка для errors.log")
+ValueError: Тестовая ошибка для errors.log

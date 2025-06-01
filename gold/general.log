@@ -1,0 +1,82 @@
+2025-06-01 13:02:19,668 INFO autoreload Watching for file changes with StatReloader
+2025-06-01 13:02:25,403 INFO basehttp "GET / HTTP/1.1" 200 29431
+2025-06-01 13:02:25,428 INFO basehttp "GET /static/img/%D0%92%D0%B0%D0%BD%D0%BD%D0%B0.png HTTP/1.1" 304 0
+2025-06-01 13:02:25,439 INFO basehttp "GET /static/img/mother-of-pearl-swirling-shell.png HTTP/1.1" 304 0
+2025-06-01 13:02:25,440 INFO basehttp "GET /static/img/1.png HTTP/1.1" 304 0
+2025-06-01 13:02:25,444 INFO basehttp "GET /static/img/%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%D0%B4%D0%BD%D0%B8%D0%B9%20%D0%B2%D0%BE%D1%80%D0%BA%D1%88%D0%BE%D0%BF%D0%BF.png HTTP/1.1" 304 0
+2025-06-01 13:02:25,445 INFO basehttp "GET /static/img/1%20(1).png HTTP/1.1" 304 0
+2025-06-01 13:02:25,454 WARNING basehttp "GET /static/img/video-poster.jpg HTTP/1.1" 404 1987
+2025-06-01 13:02:25,496 INFO basehttp "GET /static/css/style.css?v=1748772145 HTTP/1.1" 200 30207
+2025-06-01 13:02:25,505 INFO basehttp "GET /static/img/cheshuya.jpg HTTP/1.1" 304 0
+2025-06-01 13:02:32,032 INFO views Это info сообщение (должно быть в general.log)
+2025-06-01 13:02:32,032 WARNING views Это warning сообщение (должно быть в general.log и консоли)
+2025-06-01 13:02:32,033 ERROR views Это error сообщение (должно быть везде)
+NoneType: None
+2025-06-01 13:02:32,450 ERROR log Internal Server Error: /test-logs/
+Traceback (most recent call last):
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py", line 127, in test_logging
+    return HttpResponse("Проверка логов завершена")
+           ^^^^^^^^^^^^
+NameError: name 'HttpResponse' is not defined. Did you mean: 'JsonResponse'?
+2025-06-01 13:02:32,460 ERROR basehttp "GET /test-logs/ HTTP/1.1" 500 66766
+2025-06-01 13:04:04,159 INFO autoreload C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py changed, reloading.
+2025-06-01 13:04:05,118 INFO autoreload Watching for file changes with StatReloader
+2025-06-01 13:04:12,413 INFO views Это info сообщение (должно быть в general.log)
+2025-06-01 13:04:12,413 WARNING views Это warning сообщение (должно быть в general.log и консоли)
+2025-06-01 13:04:12,414 ERROR views Это error сообщение (должно быть везде)
+Traceback (most recent call last):
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py", line 130, in test_logging
+    raise ValueError("Тестовая ошибка")
+ValueError: Тестовая ошибка
+2025-06-01 13:04:12,418 CRITICAL views Это critical сообщение (должно быть везде)
+2025-06-01 13:04:12,422 INFO basehttp "GET /test-logs/ HTTP/1.1" 200 105
+2025-06-01 13:06:52,682 INFO views Это info сообщение (должно быть в general.log)
+2025-06-01 13:06:52,683 WARNING views Это warning сообщение (должно быть в general.log и консоли)
+2025-06-01 13:06:52,683 ERROR views Это error сообщение (должно быть везде)
+Traceback (most recent call last):
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py", line 130, in test_logging
+    raise ValueError("Тестовая ошибка")
+ValueError: Тестовая ошибка
+2025-06-01 13:06:52,687 CRITICAL views Это critical сообщение (должно быть везде)
+2025-06-01 13:06:52,690 INFO basehttp "GET /test-logs/ HTTP/1.1" 200 105
+2025-06-01 13:09:18,330 INFO autoreload C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\gold\settings.py changed, reloading.
+2025-06-01 13:09:19,165 INFO autoreload Watching for file changes with StatReloader
+2025-06-01 13:10:15,237 INFO autoreload Watching for file changes with StatReloader
+2025-06-01 13:10:21,103 INFO views Р­С‚Рѕ info СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ general.log)
+2025-06-01 13:10:21,104 WARNING views Р­С‚Рѕ warning СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ general.log Рё РєРѕРЅСЃРѕР»Рё)
+2025-06-01 13:10:21,105 ERROR views Р­С‚Рѕ error СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРµР·РґРµ)
+Traceback (most recent call last):
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py", line 130, in test_logging
+    raise ValueError("РўРµСЃС‚РѕРІР°СЏ РѕС€РёР±РєР°")
+ValueError: РўРµСЃС‚РѕРІР°СЏ РѕС€РёР±РєР°
+2025-06-01 13:10:21,108 CRITICAL views Р­С‚Рѕ critical СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРµР·РґРµ)
+2025-06-01 13:10:21,110 INFO basehttp "GET /test-logs/ HTTP/1.1" 200 105
+2025-06-01 13:12:25,889 INFO autoreload C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\gold\settings.py changed, reloading.
+2025-06-01 13:12:26,974 INFO autoreload Watching for file changes with StatReloader
+2025-06-01 13:21:41,189 INFO views Р­С‚Рѕ info СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ general.log)
+2025-06-01 13:21:41,190 WARNING views Р­С‚Рѕ warning СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ general.log Рё РєРѕРЅСЃРѕР»Рё)
+2025-06-01 13:21:41,195 CRITICAL views Р­С‚Рѕ critical СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРµР·РґРµ)
+2025-06-01 13:21:41,199 INFO basehttp "GET /test-logs/ HTTP/1.1" 200 105
+2025-06-01 13:23:16,952 INFO autoreload C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\gold\settings.py changed, reloading.
+2025-06-01 13:23:17,835 INFO autoreload Watching for file changes with StatReloader
+2025-06-01 13:23:20,657 INFO views Р­С‚Рѕ info СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ general.log)
+2025-06-01 13:23:20,657 WARNING views Р­С‚Рѕ warning СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ general.log Рё РєРѕРЅСЃРѕР»Рё)
+2025-06-01 13:23:20,658 ERROR views Р­С‚Рѕ error СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРµР·РґРµ)
+Traceback (most recent call last):
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py", line 130, in test_logging
+    raise ValueError("РўРµСЃС‚РѕРІР°СЏ РѕС€РёР±РєР°")
+ValueError: РўРµСЃС‚РѕРІР°СЏ РѕС€РёР±РєР°
+2025-06-01 13:23:20,661 CRITICAL views Р­С‚Рѕ critical СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРµР·РґРµ)
+2025-06-01 13:24:05,873 INFO views Р­С‚Рѕ info СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ general.log)
+2025-06-01 13:24:05,874 WARNING views Р­С‚Рѕ warning СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ general.log Рё РєРѕРЅСЃРѕР»Рё)
+2025-06-01 13:24:05,874 ERROR views Р­С‚Рѕ error СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРµР·РґРµ)
+Traceback (most recent call last):
+  File "C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\main\views.py", line 130, in test_logging
+    raise ValueError("РўРµСЃС‚РѕРІР°СЏ РѕС€РёР±РєР°")
+ValueError: РўРµСЃС‚РѕРІР°СЏ РѕС€РёР±РєР°
+2025-06-01 13:24:05,878 CRITICAL views Р­С‚Рѕ critical СЃРѕРѕР±С‰РµРЅРёРµ (РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРµР·РґРµ)
+2025-06-01 13:30:09,259 INFO autoreload C:\Users\Dimonster\PycharmProjects\Golden_fish\gold\gold\settings.py changed, reloading.

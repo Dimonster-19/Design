@@ -17,6 +17,12 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('project_detail', kwargs={'slug': self.slug})
+
+    def get_cover_url(self):
+        return self.cover.url if self.cover else ''
+
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)

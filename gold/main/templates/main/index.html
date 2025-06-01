@@ -2,59 +2,88 @@
 {% load static %}
 
 {% block content %}
-<!-- Узкий навигационный блок -->
-<section class="nav-section">
-    <div class="nav-container">
-        <div class="nav-buttons">
-            <a href="#about" class="nav-btn smooth-scroll">О нас</a>
-            <a href="#services" class="nav-btn smooth-scroll">Услуги и цены</a>
-            <a href="#projects" class="nav-btn smooth-scroll">Проекты</a>
-            <a href="#contact" class="nav-btn smooth-scroll">Контакты</a>
-        </div>
-    </div>
-</section>
+
 
 <!-- Блок "Золотая рыбка" -->
 <section class="goldfish-section">
-    <div class="goldfish-container">
-        <div class="goldfish-column image-column">
-            <img src="{% static 'img/goldfish 1.png' %}" alt="Дизайн интерьера" class="goldfish-image">
-        </div>
-
-        <div class="goldfish-column title-column">
-            <h2 class="goldfish-title">Золотая рыбка</h2>
-        </div>
-
-        <div class="goldfish-column text-column">
-            <div class="agency-info"></div>
-        </div>
+    <div class="goldfish-video-container">
+        <video class="goldfish-video-bg"
+               id="goldfishVideo"
+               disablePictureInPicture
+               controlslist="nofullscreen nodownload noremoteplayback noplaybackrate"
+               muted playsinline>
+            <source src="{% static 'video/goldfish-bg.mp4' %}" type="video/mp4">
+            <!-- Добавим fallback изображение -->
+            <img src="{% static 'img/video-poster.jpg' %}" alt="Goldfish background">
+        </video>
     </div>
 </section>
 
-<!-- Блок "Проекты" -->
 <section class="projects-section" id="projects">
-    <div class="projects-container">
-        <div class="projects-carousel">
-            <h3 class="section-title">Наши проекты</h3>
-
-            <div class="carousel-wrapper">
-                <div class="carousel-slide">
-                    <img src="{% static 'img/black-cavier.png' %}" alt="Проект 1" class="active">
-                    <img src="{% static 'img/mother-of-pearl-swirling-shell.png' %}" alt="Проект 2">
-                    <img src="{% static 'img/the-crest-of-the-wave.png' %}" alt="Проект 3">
-                </div>
-
-                <div class="carousel-indicators">
-                    <span class="indicator active" data-index="0"></span>
-                    <span class="indicator" data-index="1"></span>
-                    <span class="indicator" data-index="2"></span>
-                </div>
-            </div>
+    <div class="carousel-container">
+        <!-- Карусель с проектами -->
+        <div class="carousel-track">
+            <!-- Слайды (5 видимых + клоны для бесконечности) -->
+            <!-- первый проект -->
+            <div class="carousel-slide" data-active="true">
+    <img src="{% static 'img/Ванна.png' %}" alt="Проект 1">
+    <div class="project-info">
+        <h3 class="project-title">Название проекта 1</h3>
+        <div class="project-dropdown">
+            <p class="project-description">Краткое описание проекта...</p>
+            <a href="/project-detail/1" class="project-link">Изучить подробнее</a>
+        </div>
+    </div>
+</div>
+            <!-- второй проект -->
+            <div class="carousel-slide" data-active="true">
+    <img src="{% static 'img/mother-of-pearl-swirling-shell.png' %}" alt="Проект 1">
+    <div class="project-info">
+        <h3 class="project-title">Название проекта 2</h3>
+        <div class="project-dropdown">
+            <p class="project-description">Краткое описание проекта...</p>
+            <a href="/project-detail/1" class="project-link">Изучить подробнее</a>
+        </div>
+    </div>
+</div>
+            <!-- третий проект -->
+            <div class="carousel-slide" data-active="true">
+    <img src="{% static 'img/новогодний воркшопп.png' %}" alt="Проект 1">
+    <div class="project-info">
+        <h3 class="project-title">Название проекта 3</h3>
+        <div class="project-dropdown">
+            <p class="project-description">Краткое описание проекта...</p>
+            <a href="/project-detail/1" class="project-link">Изучить подробнее</a>
+        </div>
+    </div>
+</div>
+            <!-- четвертый проект -->
+            <div class="carousel-slide" data-active="true">
+    <img src="{% static 'img/1.png' %}" alt="Проект 1">
+    <div class="project-info">
+        <h3 class="project-title">Название проекта 4</h3>
+        <div class="project-dropdown">
+            <p class="project-description">Краткое описание проекта...</p>
+            <a href="/project-detail/1" class="project-link">Изучить подробнее</a>
+        </div>
+    </div>
+</div>
+            <!-- пятый проект -->
+            <div class="carousel-slide" data-active="true">
+    <img src="{% static 'img/1 (1).png' %}" alt="Проект 1">
+    <div class="project-info">
+        <h3 class="project-title">Название проекта 5</h3>
+        <div class="project-dropdown">
+            <p class="project-description">Краткое описание проекта...</p>
+            <a href="/project-detail/1" class="project-link">Изучить подробнее</a>
+        </div>
+    </div>
+</div>
         </div>
 
-        <div class="projects-description">
-            <p class="projects-text">Мы создаем уникальные проекты, руководствуясь только фантазией наших клиентов и профессиональными стандартами нашего агентства</p>
-        </div>
+        <!-- Стрелки управления -->
+        <button class="carousel-arrow prev">←</button>
+        <button class="carousel-arrow next">→</button>
     </div>
 </section>
 
@@ -63,18 +92,77 @@
     <div class="services-container">
         <h3 class="services-title">Услуги</h3>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <h4 class="service-name">Услуга 1</h4>
-                <ul class="service-list">
-                    <li>• Услуга 1.1</li>
-                    <li>• Услуга 1.2</li>
-                    <li>• Услуга 1.3</li>
-                    <li>• Услуга 1.4</li>
-                </ul>
+        <div class="services-horizontal">
+            <!-- Услуга 1 -->
+            <div class="service-vertical">
+                <h4 class="service-name">ПЛАНИРОВОЧНОЕ РЕШЕНИЕ</h4>
+                <p class="service-description">
+                    На основе исходных данных вашего помещения я сотворю 2-3 волшебных планировки будущего интерьера. И одну из них превращу в совершенство, вплетая в него каждую вашу поправку и желание!
+                </p>
+                <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">Читать полностью</button>
+                <div class="service-details">
+                    <span class="service-timing">Срок исполнения желаний – до 10 рабочих дней</span>
+                    <div class="service-divider"></div>
+                    <span class="service-price">Стоимость – 300 руб / м<sup>2</sup></span>
+                    <div class="service-divider"></div>
+                    <ul class="service-list">
+                        <li> Обмерный план (существующий)</li>
+                        <li> План демонтажных работ</li>
+                        <li> План монтажных работ</li>
+                        <li> Обмерный план проектируемый (при условии, что требуется перепланировка)</li>
+                        <li> План расстановки мебели и оборудования</li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Остальные услуги 2-4 -->
+            <!-- Услуга 2 -->
+            <div class="service-vertical">
+                <h4 class="service-name">ПОЛНЫЙ ДИЗАЙН-ПРОЕКТ</h4>
+                <p class="service-description">
+                    Я возьмусь за создание вашего интерьера с целостным подходом. От замысла до воплощения - каждая деталь будет продумана, чтобы ваше пространство стало воплощением мечты.
+                </p>
+                <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">Читать полностью</button>
+                <div class="service-details">
+                    <span class="service-timing">Срок исполнения желаний – до 60 рабочих дней</span>
+                    <div class="service-divider"></div>
+                    <span class="service-price">Стоимость – 1500 руб / м<sup>2</sup></span>
+                    <div class="service-divider"></div>
+                    <ul class="service-list">
+                        <li> Концептуальный коллаж</li>
+                        <li> Обмерный план (существущий)</li>
+                        <li> План демонтажных работ</li>
+                        <li> План монтажных работ</li>
+                        <li> Обмерный план (проектируемый, при условии, что требуется перепланировка)</li>
+                        <li> План напольных покрытий</li>
+                        <li> План расстановки мебели и оборудования</li>
+                        <li> План потолков</li>
+                        <li> Схема электрики</li>
+                        <li> Схема освещения</li>
+                        <li> Схема освещения с выключателями</li>
+                        <li> Схема подключения канализации</li>
+                        <li> Размещение систем вентиляции и кондиционирования</li>
+                        <li> Развертки проектирумных помещений</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Услуга 3 -->
+            <div class="service-vertical">
+                <h4 class="service-name">КОНСУЛЬТАЦИЯ</h4>
+                <p class="service-description">
+                    Проконсультирую вас по волнующим вопросам и помогу воплотить мечту в реальность!
+                </p>
+                <button class="service-toggle-btn" onclick="toggleServiceDetails(this)">Читать полностью</button>
+                <div class="service-details">
+                    <span class="service-timing">Срок исполнения желаний – один созвон</span>
+                    <div class="service-divider"></div>
+                    <span class="service-price">Стоимость – 10 000 рублей</span>
+                    <div class="service-divider"></div>
+                    <ul class="service-list">
+                        <li> Абракадабра!</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -82,50 +170,75 @@
 <!-- Блок "Команда" -->
 <section class="team-section" id="about">
     <div class="team-container">
-        <div class="team-text">
-            <h3 class="team-title">О тех, кто создает шедевры</h3>
-            <p class="team-description">Наша уникальность - в каждом из нас, именно поэтому мы создаем прекрасное</p>
-        </div>
+        <h3 class="team-title">Над вашими проектами трудится</h3>
 
-        <div class="team-photo">
-            <img src="{% static 'img/Daria Zotenkova.jpg' %}" alt="Дизайнер GOLD" class="member-photo">
-            <div class="photo-caption">
-                <p class="caption-text">"Творчество - это искусство видеть невидимое"</p>
+        <div class="team-content">
+            <div class="team-photo">
+                <img src="{% static 'img/ZotenkovaD.jpg' %}" alt="Дизайнер GOLD" class="member-photo">
+                <div class="photo-caption">
+                </div>
+            </div>
+
+            <div class="team-text">
+                <h3 class="team-name">Дарья Зотенкова</h3>
+                <p class="team-description">Дизайнер интерьера и консультант по уюту</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Блок "Оставить заявку" -->
+
+
+           <!-- Форма и контакты (теперь правильно расположены) -->
 <section class="application-section" id="contact">
     <div class="application-container">
+        <!-- Левая часть - форма -->
         <div class="application-header">
-            <h3 class="application-title">Оставить заявку</h3>
+            <h3 class="application-title">Заказать бесплатную консультацию</h3>
+            <div class="application-form">
+                <p class="form-subtitle">Заполните форму и мы свяжемся с вами совсем скоро</p>
+                <form class="contact-form" method="post" action="{% url 'consultation_request' %}">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <input type="text" name="first_name" placeholder="Ваше имя" required>
+                        <input type="text" name="last_name" placeholder="Ваша фамилия" required>
+                    </div>
+                    <input type="email" name="email" placeholder="Ваш email" required>
+                    <textarea name="message" placeholder="Загадайте свои три желания!"></textarea>
+
+                    <div class="consent-line">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent" class="consent-phrase">
+                    Я согласен(а) на <a href="/privacy-policy" target="_blank">обработку персональных данных</a>
+                    </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Отправить заявку на волшебство</button>
+                </form>
+            </div>
         </div>
 
-        <div class="application-form">
-            <h4 class="form-title">Заказать бесплатную консультацию</h4>
-            <p class="form-subtitle">Заполните форму и мы свяжемся с вами совсем скоро</p>
-
-            <form class="contact-form">
-                <div class="form-row">
-                    <input type="text" placeholder="Имя" required>
-                    <input type="text" placeholder="Фамилия" required>
+        <!-- Правая часть - контакты -->
+        <div class="application-contacts">
+            <h4 class="contacts-title">Контакты</h4>
+            <div class="contacts-info">
+                <div class="contact-item">
+                    <span class="contact-label">Телефон:</span>
+                    <a href="tel:+79639255885" class="contact-value">+7-963-925-58-85</a>
                 </div>
-
-                <div class="contact-method">
-                    <select>
-                        <option value="phone">Телефон</option>
-                        <option value="email">Email</option>
-                    </select>
-                    <input type="text" id="contact-input" placeholder="+7 (___) ___-__-__">
+                <div class="contact-item">
+                    <span class="contact-label">Электронная почта:</span>
+                    <a href="mailto:zotenkovad@yandex.ru" class="contact-value">zotenkovad@yandex.ru</a>
                 </div>
-
-                <button type="submit" class="submit-btn">Отправить заявку</button>
-            </form>
+                <div class="contact-item">
+                    <span class="contact-label">Адрес:</span>
+                    <span class="contact-value">Россия г. Москва</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 
 <!-- Кнопка "Вверх" -->
 <button id="back-to-top" class="back-to-top-btn" title="Наверх">
@@ -176,6 +289,173 @@ document.addEventListener('DOMContentLoaded', function() {
             top: 0,
             behavior: 'smooth'
         });
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('goldfishVideo');
+    const container = video.parentElement;
+    let isSlowingDown = false;
+
+    // 1. Функция для точного соответствия размеров видео и контейнера
+    function fitVideoToContainer() {
+        // Сначала устанавливаем базовые размеры
+        container.style.width = '100%';
+        container.style.height = '0';
+        container.style.paddingBottom = '56.25%'; // 16:9 соотношение
+
+        // Затем подгоняем видео
+        video.style.width = '100%';
+        video.style.height = '100%';
+        video.style.objectFit = 'cover';
+
+        // Выравнивание по нижнему краю
+        if (window.innerWidth < 768) {
+            video.style.objectPosition = 'center 30%';
+        } else {
+            video.style.objectPosition = 'center bottom';
+        }
+    }
+
+    // 2. Автовоспроизведение с обработкой ошибок
+    function startVideoPlayback() {
+        video.play().catch(e => {
+            console.log("Автовоспроизведение заблокировано:", e);
+            // Показываем постер при ошибке
+            if (!video.poster) {
+                video.poster = '{% static "img/video-poster.jpg" %}';
+            }
+            // Пробуем запустить после взаимодействия пользователя
+            document.body.addEventListener('click', function tempHandler() {
+                video.play().finally(() => {
+                    document.body.removeEventListener('click', tempHandler);
+                });
+            });
+        });
+    }
+
+    // 3. Инициализация видео
+    function initVideo() {
+        // Ждем когда будут доступны метаданные
+        if (video.readyState >= 1) { // HAVE_ENOUGH_DATA
+            fitVideoToContainer();
+            startVideoPlayback();
+        } else {
+            video.addEventListener('loadedmetadata', function() {
+                fitVideoToContainer();
+                startVideoPlayback();
+            });
+        }
+    }
+
+    // 4. Ваш оригинальный эффект замедления
+    video.addEventListener('timeupdate', function() {
+        if (!video.duration) return;
+
+        const slowDownStart = video.duration - 1.5;
+        const stopAt = video.duration - 0.1;
+
+        if (video.currentTime >= slowDownStart && !isSlowingDown) {
+            isSlowingDown = true;
+            video.style.transition = 'all 1.5s ease-out';
+
+            slowDownVideo(video, 1.5);
+        }
+
+        if (video.currentTime >= stopAt) {
+            video.pause();
+        }
+    });
+
+    // 5. Функция замедления (без изменений)
+    function slowDownVideo(videoElement, duration) {
+        const startRate = 1.0;
+        const endRate = 0.4;
+        const startTime = performance.now();
+
+        const updateRate = () => {
+            const elapsed = (performance.now() - startTime) / 1000;
+            const progress = Math.min(elapsed / duration, 1);
+            videoElement.playbackRate = startRate - (startRate - endRate) * progress;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateRate);
+            }
+        };
+
+        updateRate();
+    }
+
+    // 6. Обработчик ресайза
+    function handleResize() {
+        fitVideoToContainer();
+    }
+
+    // Инициализация
+    initVideo();
+    window.addEventListener('resize', handleResize);
+
+    // Дополнительный фикс для iOS
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+});
+
+
+// ------------- Выпадающее меню -------------
+document.addEventListener('DOMContentLoaded', function() {
+    // Функция для закрытия всех открытых блоков
+    function closeAllServiceDetails() {
+        document.querySelectorAll('.service-details.active').forEach(block => {
+            block.classList.remove('active');
+            block.style.maxHeight = '0';
+            block.previousElementSibling.textContent = 'Читать полностью';
+        });
+    }
+
+    // Обработчик клика по кнопкам
+    document.querySelectorAll('.service-toggle-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const serviceBlock = this.closest('.service-vertical');
+            const detailsBlock = serviceBlock.querySelector('.service-details');
+            const isActive = detailsBlock.classList.contains('active');
+
+            // Закрываем все открытые блоки, кроме текущего
+            document.querySelectorAll('.service-details.active').forEach(block => {
+                if (block !== detailsBlock) {
+                    block.classList.remove('active');
+                    block.style.maxHeight = '0';
+                    block.previousElementSibling.textContent = 'Читать полностью';
+                }
+            });
+
+            // Переключаем текущий блок
+            if (isActive) {
+                detailsBlock.classList.remove('active');
+                detailsBlock.style.maxHeight = '0';
+                this.textContent = 'Читать полностью';
+            } else {
+                detailsBlock.classList.add('active');
+                // Устанавливаем максимальную высоту для плавной анимации
+                detailsBlock.style.maxHeight = detailsBlock.scrollHeight + 'px';
+                this.textContent = 'Свернуть';
+            }
+        });
+
+        // Инициализация - все блоки закрыты
+        const detailsBlock = button.nextElementSibling;
+        if (detailsBlock.classList.contains('service-details')) {
+            detailsBlock.style.maxHeight = '0';
+            detailsBlock.style.overflow = 'hidden';
+            detailsBlock.style.transition = 'max-height 0.3s ease';
+        }
+    });
+
+    // Закрытие при клике вне блока
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.service-vertical') && !e.target.classList.contains('service-toggle-btn')) {
+            closeAllServiceDetails();
+        }
     });
 });
 </script>
